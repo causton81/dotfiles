@@ -1,0 +1,9 @@
+[alias]
+	di = diff
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+[user]
+	name = Christopher F. AUSTON
+	email = causton@gmail.com
