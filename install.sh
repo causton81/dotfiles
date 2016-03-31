@@ -9,11 +9,21 @@ main() {
   test -n "$HOME" || die '$HOME is empty'
   test -e "$HOME" || die '$HOME does not exist'
 
+	select email in causton81@gmail.com cfauston@us.ibm.com; do
+		cat > $SCRIPT_DIR/git-user <<EOF
+[user]
+  email = $email
+  name = Christopher F. AUSTON
+EOF
+
+		break
+	done
+
   if [ -e ~/.vimrc ]; then
     mv -v ~/.vimrc /tmp/vimrc.${TS}
   fi
 
-  for dotfile in bashrc bash_aliases vim gitconfig; do
+  for dotfile in bashrc bash_aliases vim gitconfig git-user; do
     target=$SCRIPT_DIR/$dotfile
     link_name=$HOME/.$dotfile
 

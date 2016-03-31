@@ -4,6 +4,6 @@
 	co = checkout
 	ci = commit
 	br = branch
-[user]
-	email = cfauston@us.ibm.com
-	name = Christopher F. AUSTON
+
+[include]
+	path = ~/.git-user
