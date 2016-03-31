@@ -5,5 +5,5 @@
 	ci = commit
 	br = branch
 [user]
+	email = cfauston@us.ibm.com
 	name = Christopher F. AUSTON
-	email = causton@gmail.com
