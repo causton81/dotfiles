@@ -110,6 +110,7 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>Gzz
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>- ddp
 nnoremap <leader>_ ddkP
+nnoremap <leader>t :!ctags -R *<cr>
 
 inoremap <leader><c-u> <esc>lviwUi
 nnoremap <leader><c-u> viwU
@@ -137,10 +138,23 @@ augroup ft_vim
 augroup END
 " }}}
 
+function FlakeAll()
+	let oldmake = &makeprg
+	let &makeprg = 'flake8'
+	execute 'make'
+	let &makeprg = oldmake
+endfunction
+
 " python file settings ---------------- {{{
 augroup ft_python
 	autocmd!
-	autocmd FileType python let &makeprg="flake8 %"
+	autocmd FileType python setlocal expandtab
+	autocmd FileType python setlocal tabstop=4
+	autocmd FileType python setlocal shiftwidth=4
+	autocmd FileType python setlocal makeprg="flake8 %"
 	autocmd FileType python nnoremap <leader>m :make<cr>
+	autocmd FileType python nnoremap <leader>M :call FlakeAll()<cr>
+	autocmd FileType python nnoremap <leader>n :!nosetests %<cr>
+	autocmd FileType python nnoremap <buffer> <leader>N :!nosetests tests/unit<cr>
 augroup END
 " }}}
