@@ -158,3 +158,21 @@ augroup ft_python
 	autocmd FileType python nnoremap <buffer> <leader>N :!nosetests tests/unit<cr>
 augroup END
 " }}}
+
+" ruby file settings ---------------- {{{
+augroup ft_ruby
+	autocmd!
+	autocmd FileType ruby setlocal expandtab
+	autocmd FileType ruby setlocal tabstop=2
+	autocmd FileType ruby setlocal shiftwidth=2
+augroup END
+" }}}
+
+" json file settings ---------------- {{{
+augroup ft_json
+	autocmd!
+	autocmd FileType json setlocal expandtab
+	autocmd FileType json setlocal tabstop=2
+	autocmd FileType json setlocal shiftwidth=2
+augroup END
+" }}}

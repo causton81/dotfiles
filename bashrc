@@ -117,6 +117,7 @@ export EDITOR=vim
 if [ -d ~/.pyenv ]; then
 	PATH=~/.pyenv/bin:$PATH
 	eval "$(pyenv init -)"
+	export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 	eval "$(pyenv virtualenv-init -)"
 fi
 
